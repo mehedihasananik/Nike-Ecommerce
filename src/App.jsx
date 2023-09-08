@@ -1,11 +1,11 @@
 import "./App.css";
-import { Hero, Navbar } from "./components";
+import { Hero } from "./components";
+import { heroapi } from "./data/data";
 
 function App() {
   return (
     <>
-      <Hero />
-      <Navbar />
+      <Hero heroapi={heroapi} />
     </>
   );
 }
