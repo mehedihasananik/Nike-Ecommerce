@@ -19,13 +19,23 @@ const Hero = ({
                 {btntext}
               </button>
             </div>
-            {/* <div className=""></div>
-              <div className=""></div> */}
           </div>
         </div>
         {/* img */}
-        <div className="relative opacity-100 z-20 ">
-          <img className="h-[30vh] md:h-[30vh] " src={img} alt="" />
+        <div className="flex justify-between">
+          <div className="relative opacity-100 z-20 space-y-4 ">
+            {videos.map((item, index) => {
+              return <Clips key={index} {...item} />;
+            })}
+          </div>
+          <div className="relative opacity-100 z-20 -left-20 right-0 ">
+            <img
+              className=" top-0 h-[30vh] md:h-[40vh] -rotate-[30deg] hover:rotate-0 transition-all duration-300 cursor-pointer"
+              src={img}
+              alt=""
+            />
+          </div>
+          <div></div>
         </div>
       </div>
     </div>
