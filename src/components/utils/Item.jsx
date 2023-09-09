@@ -1,23 +1,44 @@
 import { AiTwotoneStar } from "react-icons/ai";
+import { BsFillBagCheckFill } from "react-icons/bs";
 
-const Item = ({ btn, color, id, img, price, rating, shadow, text, title }) => {
-  console.log(color);
+/* eslint-disable react/prop-types */
+
+const Item = ({
+  ifExists,
+  btn,
+  color,
+  id,
+  img,
+  price,
+  rating,
+  shadow,
+  text,
+  title,
+}) => {
   return (
     <div className="container mx-auto">
       <div
-        className={`bg-gradient-to-b ${color} flex flex-col items-center h-80 rounded-xl py-2`}
+        className={`${
+          ifExists
+            ? `bg-gradient-to-b ${color} flex justify-center items-center  rounded-xl py-2 px-4 hover:scale-105 cursor-pointer  transition-all ease-in-out duration-700 relative md:mb-5`
+            : `bg-gradient-to-b ${color} flex flex-col items-center  rounded-xl py-4 hover:scale-105 cursor-pointer  transition-all ease-in-out duration-700`
+        } `}
       >
         {/* title */}
         <div className="flex flex-col">
           {/* title */}
-          <div className="text-center">
-            <h3 className="text-xl text-white font-medium leading-5">
+          <div className={`${ifExists ? "" : "text-center"}`}>
+            <h3 className="text-xl text-white font-medium leading-5 whitespace-nowrap pb-2">
               {title}
             </h3>
             <p className="text-base text-white font-medium leading-5">{text}</p>
           </div>
           {/* price rating */}
-          <div className="flex justify-around py-2">
+          <div
+            className={`flex py-2  ${
+              ifExists ? "justify-start" : "justify-center space-x-3 "
+            }`}
+          >
             <div className="flex justify-center items-center bg-white/80 text-xs rounded-md px-[5px] py-[1px]">
               <p>${price}</p>
             </div>
@@ -25,23 +46,43 @@ const Item = ({ btn, color, id, img, price, rating, shadow, text, title }) => {
               <span>
                 <AiTwotoneStar className="text-white w-6 h-5" />
               </span>
-              <p>{rating}</p>
+              <p className="text-white">{rating}</p>
             </div>
           </div>
           {/* buttons */}
-          <div className="flex justify-around">
-            <div>
+          <div
+            className={`flex py-2   ${
+              ifExists ? "justify-start space-x-3" : "justify-center space-x-3 "
+            }`}
+          >
+            <div className="flex justify-center items-center bg-white/80 text-xs rounded-md px-[5px] py-[5px]">
               {" "}
-              <p>icon</p>
+              <span>
+                <BsFillBagCheckFill className="w-5 h-5" />
+              </span>
             </div>
             <div>
-              <button>{btn}</button>
+              <button className="bg-white/90 px-3 py-1 rounded-lg text-sm shadow-lg shadow-slate-400 border-none">
+                {btn}
+              </button>
             </div>
           </div>
         </div>
         {/* image */}
-        <div className="w-[280px] h-[120px]">
-          <img className="w-60 h-full" src={img} alt="" />
+        <div
+          className={`${
+            ifExists ? " w-[240px] h-[120px]" : "w-[300px] h-[140px]"
+          }`}
+        >
+          <img
+            className={`w-60 h-full  cursor-pointer duration-300 ${
+              ifExists
+                ? "md:absolute left-19 right-3 top-2 rotate-[-40deg] hover:rotate-0"
+                : "hover:-rotate-12"
+            }`}
+            src={img}
+            alt=""
+          />
         </div>
       </div>
     </div>

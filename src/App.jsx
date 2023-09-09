@@ -5,11 +5,11 @@ import { heroapi, popularsales, toprateslaes } from "./data/data";
 
 function App() {
   return (
-    <>
+    <div className="overflow-hidden ">
       <Hero heroapi={heroapi} />
-      <Popular endPoint={popularsales} />
+      <Popular endPoint={popularsales} ifExists />
       <Popular endPoint={toprateslaes} />
-    </>
+    </div>
   );
 }
 
