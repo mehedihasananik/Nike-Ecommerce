@@ -1,14 +1,22 @@
 import "./App.css";
-import { Hero } from "./components";
-import Popular from "./components/Popular";
-import { heroapi, popularsales, toprateslaes } from "./data/data";
+import { Hero, Popular, HighLight } from "./components";
+
+import {
+  heroapi,
+  popularsales,
+  toprateslaes,
+  highlight,
+  sneaker,
+} from "./data/data";
 
 function App() {
   return (
-    <div className="overflow-hidden ">
+    <div className="overflow-hidden flex flex-col gap-7 md:gap-14 ">
       <Hero heroapi={heroapi} />
       <Popular endPoint={popularsales} ifExists />
+      <HighLight endPoint={highlight} ifExists />
       <Popular endPoint={toprateslaes} />
+      <HighLight endPoint={sneaker} />
     </div>
   );
 }

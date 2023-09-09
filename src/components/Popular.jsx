@@ -3,7 +3,6 @@ import Title from "./utils/Title";
 /* eslint-disable react/prop-types */
 
 const Popular = ({ ifExists, endPoint: { title, items } }) => {
-  console.log(title);
   return (
     <div className="container mx-auto px-[2%] md:px-0">
       <Title title={title} />
@@ -13,7 +12,6 @@ const Popular = ({ ifExists, endPoint: { title, items } }) => {
         }`}
       >
         {items.map((item) => {
-          console.log(item);
           return <Item key={item.id} {...item} ifExists={ifExists} />;
         })}
       </div>
