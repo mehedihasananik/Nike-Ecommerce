@@ -4,7 +4,6 @@ import Social from "./utils/Social";
 const Hero = ({
   heroapi: { title, btntext, img, sociallinks, subtitle, videos },
 }) => {
-  console.log(sociallinks);
   return (
     // main
     <div className="relative">
