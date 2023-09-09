@@ -10,7 +10,7 @@ const Hero = ({
     <div className="relative">
       {/* background */}
       <div className="absolute bg-theme clip-path top-0 left-0 right-0 h-[50vh] sm:h-[40vh]  md:h-[70vh] w-auto"></div>
-      <div className="container  mx-auto z-20 relative visible px-5 md:px-10">
+      <div className="container  mx-auto z-20 relative visible xs:px-3 md:px-10">
         {/* content */}
         <div className="flex flex-col items-center pt-10">
           <h2 className="text-2xl md:text-5xl text-white/80 font-bold">
@@ -32,7 +32,7 @@ const Hero = ({
           </div>
           <div>
             <img
-              className="w-[32vh] md:w-[70vh] -rotate-[35deg] hover:rotate-0 duration-300 cursor-pointer absolute left-28 md:relative md:left-0"
+              className="xs:w-[30vh] md:w-[70vh] md:-rotate-[35deg] hover:rotate-0 duration-300 cursor-pointer"
               src={img}
               alt=""
             />
