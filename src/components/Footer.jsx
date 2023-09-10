@@ -2,8 +2,8 @@ const Footer = ({ footerAPI: { links, titles } }) => {
   return (
     <div className="bg-theme py-10">
       <div className="container mx-auto">
-        <div className="grid justify-center text-white/80 ">
-          <div className="grid grid-cols-3  md:gap-x-20">
+        <div className=" grid justify-center text-white/80 ">
+          <div className="max-w-2xl grid grid-cols-3  md:gap-x-20">
             {/* Titles */}
             {titles.map((item) => {
               return (
@@ -16,7 +16,7 @@ const Footer = ({ footerAPI: { links, titles } }) => {
               );
             })}
           </div>
-          <div className="grid grid-cols-3 md:gap-x-20 ">
+          <div className="max-w-2xl grid grid-cols-3 md:gap-x-20 ">
             {/* Links */}
             {links.map((item) => {
               return (
