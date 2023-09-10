@@ -3,7 +3,7 @@ const HightLight = ({
   ifExists,
   endPoint: { btn, heading, img, text, title, url },
 }) => {
-  console.log(ifExists);
+  // console.log(ifExists);
   return (
     <div className="container mx-auto  flex-row-reverse">
       <div

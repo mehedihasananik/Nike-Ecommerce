@@ -1,5 +1,5 @@
 import "./App.css";
-import { Hero, Popular, HighLight } from "./components";
+import { Hero, Popular, HighLight, Stores } from "./components";
 
 import {
   heroapi,
@@ -7,6 +7,7 @@ import {
   toprateslaes,
   highlight,
   sneaker,
+  story,
 } from "./data/data";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <HighLight endPoint={highlight} ifExists />
       <Popular endPoint={toprateslaes} />
       <HighLight endPoint={sneaker} />
+      <Stores story={story} />
     </div>
   );
 }
