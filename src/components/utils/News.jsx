@@ -8,8 +8,12 @@ const News = ({ btn, by, img, like, text, time, title, url }) => {
     <div className="max-w-sm">
       <div className="border rounded-lg">
         {/* img */}
-        <div className="max-w-sm">
-          <img className="w-full h-full" src={img} alt="" />
+        <div className="max-w-sm ">
+          <img
+            className="w-full h-full rounded-t-lg object-cover"
+            src={img}
+            alt=""
+          />
         </div>
 
         <div className="p-3">
