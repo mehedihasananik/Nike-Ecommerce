@@ -1,4 +1,3 @@
-import News from "./utils/News";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { AiTwotoneHeart } from "react-icons/ai";
@@ -7,7 +6,7 @@ import { BsHash } from "react-icons/bs";
 
 /* eslint-disable react/prop-types */
 
-const Stores = ({ story: { title, news } }) => {
+const Stories = ({ story: { title, news } }) => {
   const splideOptions = {
     perPage: 4,
     perMove: 1,
@@ -19,15 +18,15 @@ const Stores = ({ story: { title, news } }) => {
     padding: "0",
     breakpoints: {
       1200: { perPage: 3 },
-      991: { perPage: 2.3 },
+      991: { perPage: 2 },
       768: { perPage: 2 },
-      500: { perPage: 1.3 },
+      500: { perPage: 1 },
       425: { perPage: 1 },
     },
   };
   return (
     // main div
-    <div className="container mx-auto">
+    <div className="container mx-auto ">
       <div className="pb-5 md:pb-10">
         <h3 className="text-lg md:text-5xl font-bold text-black tracking-wide">
           {title}
@@ -35,10 +34,10 @@ const Stores = ({ story: { title, news } }) => {
       </div>
 
       <Splide options={splideOptions}>
-        {news.map((item) => {
+        {news.map((item, index) => {
           const { btn, by, img, like, text, time, title, url } = item;
           return (
-            <SplideSlide key={item.id}>
+            <SplideSlide key={index}>
               <div className="md:max-w-sm">
                 <div className="border rounded-lg">
                   {/* img */}
@@ -86,7 +85,10 @@ const Stores = ({ story: { title, news } }) => {
                       </div>
                       <div className="w-full bg-black text-white text-center py-2 rounded-lg shadow-md shadow-black cursor-pointer">
                         {" "}
-                        <button className="">{btn}</button>
+                        <a href={url} target="_">
+                          {" "}
+                          <button className="">{btn}</button>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -100,4 +102,4 @@ const Stores = ({ story: { title, news } }) => {
   );
 };
 
-export default Stores;
+export default Stories;
