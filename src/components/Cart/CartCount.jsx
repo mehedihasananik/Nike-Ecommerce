@@ -1,10 +1,12 @@
 import { AiOutlineDoubleLeft } from "react-icons/ai";
 import { RxCross2 } from "react-icons/rx";
-import { useDispatch } from "react-redux";
-import { openModel } from "../../redux/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { clearCart, openModel } from "../../redux/cartSlice";
 
 const CartCount = () => {
   const dispatch = useDispatch();
+  const { cartItems } = useSelector((state) => state.cart);
+  // console.log(cartItems);
   return (
     <div>
       <div className="bg-white flex justify-between items-center py-2 px-2  ">
@@ -20,7 +22,7 @@ const CartCount = () => {
           </div>
         </div>
         <div className="bg-black text-white p-1 rounded-md">
-          <button>
+          <button onClick={() => dispatch(clearCart())}>
             {" "}
             <RxCross2 style={{ fontSize: "18px" }} className="stroke-[.5]" />
           </button>

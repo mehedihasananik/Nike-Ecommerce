@@ -1,11 +1,14 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { BiPlus } from "react-icons/bi";
 import { BiMinus } from "react-icons/bi";
+import { deCreaseItem, increaseItem, removeItem } from "../../redux/cartSlice";
 
 const CartItem = () => {
   const { cartItems } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
   console.log(cartItems);
+
   return (
     <>
       {cartItems.length >= 1 && (
@@ -29,7 +32,15 @@ const CartItem = () => {
                       </div>
                       {/* button */}
                       <div className="flex justify-start space-x-4 pt-4 px-4">
-                        <button className="flex items-center justify-center text-white bg-black   rounded-md  ">
+                        <button
+                          onClick={() => {
+                            if (quantity === 1) {
+                              dispatch(removeItem(id));
+                            }
+                            dispatch(deCreaseItem(id));
+                          }}
+                          className="flex items-center justify-center text-white bg-black   rounded-md  "
+                        >
                           <BiMinus className="w-6 h-5" />
                         </button>
                         <div className=" text-white bg-black rounded-md py-0.5 ">
@@ -37,7 +48,10 @@ const CartItem = () => {
                             {quantity}
                           </span>
                         </div>
-                        <button className="flex items-center justify-center text-white bg-black   rounded-md  ">
+                        <button
+                          onClick={() => dispatch(increaseItem(id))}
+                          className="flex items-center justify-center text-white bg-black   rounded-md  "
+                        >
                           <BiPlus className="w-6 h-5" />
                         </button>
                       </div>
@@ -46,10 +60,13 @@ const CartItem = () => {
                   {/* price */}
                   <div className="pt-2 flex flex-col gap-y-5">
                     <div>
-                      <h3>{price}</h3>
+                      <h3>{price * quantity}</h3>
                     </div>
                     <div>
-                      <button className="flex items-center justify-center text-white bg-black   rounded-md py-1 ">
+                      <button
+                        onClick={() => dispatch(removeItem(id))}
+                        className="flex items-center justify-center text-white bg-black   rounded-md py-1 "
+                      >
                         <RiDeleteBinLine className="w-7 h-5" />
                       </button>
                     </div>

@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import CartCount from "./CartCount";
 import CartEmpty from "./CartEmpty";
 import CartItem from "./CartItem";
+import Checkout from "./Checkout";
 /* eslint-disable react/prop-types */
 
 const Cart = () => {
@@ -18,6 +19,7 @@ const Cart = () => {
             <CartCount />
             <CartItem />
             <CartEmpty />
+            <Checkout />
           </div>
         </div>
       )}
