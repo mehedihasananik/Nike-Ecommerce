@@ -6,6 +6,7 @@ import {
   Stories,
   Footer,
   Navbar,
+  Cart,
 } from "./components";
 
 import {
@@ -21,6 +22,7 @@ import {
 function App() {
   return (
     <>
+      <Cart />
       <Navbar />
       <div className="overflow-hidden flex flex-col gap-7 md:gap-14 ">
         <Hero heroapi={heroapi} />
