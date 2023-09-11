@@ -5,11 +5,11 @@ const Footer = ({ footerAPI: { links, titles } }) => {
         <div className=" grid justify-center text-white/80 ">
           <div className="max-w-2xl grid grid-cols-3  md:gap-x-20">
             {/* Titles */}
-            {titles.map((item) => {
+            {titles.map((item, index) => {
               return (
                 <h3
                   className="text-md md:text-lg font-bold leading-6 tracking-wider pb-2"
-                  key={item.id}
+                  key={index}
                 >
                   {item.title.toUpperCase()}
                 </h3>
@@ -18,9 +18,9 @@ const Footer = ({ footerAPI: { links, titles } }) => {
           </div>
           <div className="max-w-2xl grid grid-cols-3 md:gap-x-20 ">
             {/* Links */}
-            {links.map((item) => {
+            {links.map((item, index) => {
               return (
-                <div className="space-y-1" key={item.key}>
+                <div className="space-y-1" key={index}>
                   {item.map((i, index) => {
                     return (
                       <h3 className="text-xs md:text-sm " key={index}>

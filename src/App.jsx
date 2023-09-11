@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import {
   Hero,
@@ -20,10 +21,15 @@ import {
 } from "./data/data";
 
 function App() {
+  const [show, setShow] = useState(false);
+
+  const handleShow = () => {
+    setShow(true);
+  };
   return (
     <>
-      <Cart />
-      <Navbar />
+      <Cart show={show} />
+      <Navbar handleShow={handleShow} />
       <div className="overflow-hidden flex flex-col gap-7 md:gap-14 ">
         <Hero heroapi={heroapi} />
         <Popular endPoint={popularsales} ifExists />

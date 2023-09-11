@@ -3,9 +3,16 @@ import { BiSearch } from "react-icons/bi";
 import { AiOutlineHeart } from "react-icons/ai";
 import { PiBag } from "react-icons/pi";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { openModel } from "../redux/cartSlice";
 
-const Navbar = () => {
+const Navbar = ({ handleShow }) => {
   const [isFixed, setIsFixed] = useState(false);
+
+  const { amount } = useSelector((state) => state.cart);
+
+  const dispatch = useDispatch();
 
   const handleScroll = () => {
     if (window.scrollY > 30) {
@@ -28,7 +35,7 @@ const Navbar = () => {
       className={` ${
         isFixed
           ? "fixed h-20 text-black flex justify-center items-center  top-0 left-0 right-0 z-20  bg-white/50  backdrop-filter backdrop-blur bg-opacity-50 opacity-100  shadow-sm shadow-slate-100 transition-all duration-300"
-          : "absolute top-3 left-0 right-0 z-20"
+          : "absolute top-3 left-0 right-0 z-50 "
       }`}
     >
       <header className=" container mx-auto">
@@ -51,7 +58,11 @@ const Navbar = () => {
               {" "}
               <AiOutlineHeart />
             </span>
-            <span className="relative z-10">
+
+            <button
+              onClick={() => dispatch(openModel())}
+              className="relative z-10"
+            >
               {" "}
               <PiBag
                 className={`z-10 opacity-100 ${
@@ -65,9 +76,9 @@ const Navbar = () => {
                     : "h-5 w-5 rounded-full bg-gray-200 text-black  text-xs flex justify-center items-center opacity-100 z-50 absolute top-4  left-1 right-0"
                 }`}
               >
-                0
+                {amount}
               </div>
-            </span>
+            </button>
           </div>
         </nav>
       </header>
