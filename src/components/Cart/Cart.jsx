@@ -6,7 +6,7 @@ import CartItem from "./CartItem";
 
 const Cart = () => {
   const { open } = useSelector((state) => state.cart);
-  console.log(open);
+
   return (
     <>
       {open && (

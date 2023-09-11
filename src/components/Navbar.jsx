@@ -10,7 +10,7 @@ import { openModel } from "../redux/cartSlice";
 const Navbar = ({ handleShow }) => {
   const [isFixed, setIsFixed] = useState(false);
 
-  const { amount } = useSelector((state) => state.cart);
+  const { amount, cartItems } = useSelector((state) => state.cart);
 
   const dispatch = useDispatch();
 
@@ -76,7 +76,7 @@ const Navbar = ({ handleShow }) => {
                     : "h-5 w-5 rounded-full bg-gray-200 text-black  text-xs flex justify-center items-center opacity-100 z-50 absolute top-4  left-1 right-0"
                 }`}
               >
-                {amount}
+                {cartItems.length}
               </div>
             </button>
           </div>
