@@ -9,9 +9,9 @@ const CartCount = () => {
     <div>
       <div className="bg-white flex justify-between items-center py-2 px-2  ">
         <div className="flex items-center space-x-3">
-          <span className="w-5 h-4">
+          <button onClick={() => dispatch(openModel())} className="w-5 h-4">
             <AiOutlineDoubleLeft />
-          </span>
+          </button>
           <div className="text-base font-medium">
             Your Cart{" "}
             <span className="bg-black py-1 px-1 text-[12px] text-white rounded-md">
@@ -22,11 +22,7 @@ const CartCount = () => {
         <div className="bg-black text-white p-1 rounded-md">
           <button>
             {" "}
-            <RxCross2
-              onClick={() => dispatch(openModel())}
-              style={{ fontSize: "18px" }}
-              className="stroke-[.5]"
-            />
+            <RxCross2 style={{ fontSize: "18px" }} className="stroke-[.5]" />
           </button>
         </div>
       </div>

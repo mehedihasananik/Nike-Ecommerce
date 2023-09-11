@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 const initialState = {
   cartItems: [],
   amount: 0,
@@ -14,9 +15,14 @@ const cartSlice = createSlice({
   reducers: {
     openModel: (state) => {
       state.open = !state.open
+    },
+    addTocart: (state, action) => {
+      const item = { ...action.payload, quantity: 1 }
+
+      state.cartItems.push(item)
     }
   }
 });
 
-export const { openModel } = cartSlice.actions
+export const { openModel, addTocart } = cartSlice.actions
 export default cartSlice.reducer;

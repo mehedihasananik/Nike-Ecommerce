@@ -1,5 +1,7 @@
 import { AiTwotoneStar } from "react-icons/ai";
 import { BsFillBagCheckFill } from "react-icons/bs";
+import { useDispatch } from "react-redux";
+import { addTocart } from "../../redux/cartSlice";
 
 /* eslint-disable react/prop-types */
 
@@ -15,6 +17,13 @@ const Item = ({
   text,
   title,
 }) => {
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(
+      addTocart({ btn, color, id, img, price, rating, shadow, text, title })
+    );
+  };
   return (
     <div className="container mx-auto">
       <div
@@ -57,9 +66,13 @@ const Item = ({
           >
             <div className="flex justify-center items-center bg-white/80 text-xs rounded-md px-[5px] py-[5px]">
               {" "}
-              <span>
+              <button
+                onClick={() => {
+                  handleAddToCart();
+                }}
+              >
                 <BsFillBagCheckFill className="w-5 h-5" />
-              </span>
+              </button>
             </div>
             <div>
               <button className="bg-white/90 px-3 py-1 rounded-lg text-sm shadow-lg shadow-slate-400 border-none">
