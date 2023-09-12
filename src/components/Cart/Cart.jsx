@@ -19,7 +19,6 @@ const Cart = () => {
             <CartCount />
             <CartItem />
             <CartEmpty />
-            <Checkout />
           </div>
         </div>
       )}

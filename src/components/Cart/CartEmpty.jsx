@@ -3,7 +3,6 @@ import bag from "../../assets/emptybag.png";
 import { HiOutlineArrowLeft } from "react-icons/hi";
 const CartEmpty = () => {
   const { cartItems } = useSelector((state) => state.cart);
-  console.log(cartItems);
 
   return (
     <div>

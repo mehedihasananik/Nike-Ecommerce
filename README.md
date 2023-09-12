@@ -361,6 +361,40 @@ export const { clearCart, removeItem, increase, decrease, calculateTotals } =
 export default cartSlice.reducer;
 ```
 
+Total Calculations
+
+```js
+const { cart } = useSelector((state) => state.cart);
+console.log(cart);
+
+const [totalPrice, setTotalprice] = useState(0);
+const [totalQnty, setTotalQnty] = useState(0);
+
+const dispatch = useDispatch();
+
+useEffect(() => {
+  const totalQuntyCalcultaion = () => {
+    let total = 0;
+    cart.map((item) => {
+      total = item.qnty + total;
+    });
+    setTotalQnty(total);
+  };
+  totalQuntyCalcultaion();
+}, [cart]);
+
+useEffect(() => {
+  const totalCalculation = () => {
+    let total = 0;
+    cart.map((item) => {
+      total = item.price * item.qnty + total;
+    });
+    setTotalprice(total);
+  };
+  totalCalculation();
+}, [cart]);
+```
+
 - CartItem.js
 
 ```js
