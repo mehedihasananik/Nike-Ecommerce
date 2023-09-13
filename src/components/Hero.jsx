@@ -6,7 +6,7 @@ const Hero = ({
 }) => {
   return (
     // main
-    <div className="relative">
+    <div className="relative pt-5 md:pt-10 ">
       {/* background */}
       <div className="absolute bg-theme clip-path top-0 left-0 right-0 h-[50vh] sm:h-[40vh]  md:h-[70vh] w-auto"></div>
       <div className="container  mx-auto z-20 relative visible xs:px-3 md:px-10">

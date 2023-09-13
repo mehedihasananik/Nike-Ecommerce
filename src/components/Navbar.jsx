@@ -34,8 +34,8 @@ const Navbar = ({ handleShow }) => {
     <div
       className={` ${
         isFixed
-          ? "fixed h-20 text-black flex justify-center items-center  top-0 left-0 right-0 z-50  bg-white/50  backdrop-filter backdrop-blur bg-opacity-50 opacity-100  shadow-sm shadow-slate-100 transition-all duration-300"
-          : "absolute top-3 left-0 right-0 z-50 "
+          ? "fixed h-20 text-black flex justify-center items-center  top-0 left-0 right-0 z-50  bg-white/50  backdrop-filter backdrop-blur bg-opacity-50 opacity-100  shadow-sm shadow-slate-100 transition-all duration-300 px-3"
+          : "absolute top-3 left-0 right-0 z-50 px-3 "
       }`}
     >
       <header className=" container mx-auto">
