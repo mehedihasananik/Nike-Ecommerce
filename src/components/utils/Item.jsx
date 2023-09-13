@@ -30,7 +30,7 @@ const Item = ({
         className={`${
           ifExists
             ? `bg-gradient-to-b ${color} flex justify-center items-center  rounded-xl py-2 px-4 md:hover:scale-105 cursor-pointer  transition-all ease-in-out duration-700 relative md:mb-5`
-            : `bg-gradient-to-b ${color} flex flex-col items-center  rounded-xl py-4 hover:scale-105 cursor-pointer  transition-all ease-in-out duration-700`
+            : `bg-gradient-to-b ${color} flex flex-col items-center  rounded-xl py-4 md:hover:scale-105 cursor-pointer  transition-all ease-in-out duration-700`
         } `}
       >
         {/* title */}
