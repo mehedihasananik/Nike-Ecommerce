@@ -21,7 +21,7 @@ const CartCount = ({ amount }) => {
             </span>
           </div>
         </div>
-        <div className="bg-black text-white p-1 rounded-md">
+        <div className="flex justify-center bg-black text-white p-1 rounded-md">
           <button onClick={() => dispatch(clearCart())}>
             {" "}
             <RxCross2 style={{ fontSize: "18px" }} className="stroke-[.5]" />
