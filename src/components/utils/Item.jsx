@@ -1,7 +1,7 @@
 import { AiTwotoneStar } from "react-icons/ai";
 import { BsFillBagCheckFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
-import { addTocart } from "../../redux/cartSlice";
+import { addTocart, openModel } from "../../redux/cartSlice";
 
 /* eslint-disable react/prop-types */
 
@@ -29,7 +29,7 @@ const Item = ({
       <div
         className={`${
           ifExists
-            ? `bg-gradient-to-b ${color} flex justify-center items-center  rounded-xl py-2 px-4 hover:scale-105 cursor-pointer  transition-all ease-in-out duration-700 relative md:mb-5`
+            ? `bg-gradient-to-b ${color} flex justify-center items-center  rounded-xl py-2 px-4 md:hover:scale-105 cursor-pointer  transition-all ease-in-out duration-700 relative md:mb-5`
             : `bg-gradient-to-b ${color} flex flex-col items-center  rounded-xl py-4 hover:scale-105 cursor-pointer  transition-all ease-in-out duration-700`
         } `}
       >
@@ -75,7 +75,13 @@ const Item = ({
               </button>
             </div>
             <div>
-              <button className="bg-white/90 px-3 py-1 rounded-lg text-sm shadow-lg shadow-slate-400 border-none">
+              <button
+                onClick={() => {
+                  handleAddToCart();
+                  dispatch(openModel());
+                }}
+                className="bg-white/90 px-3 py-1 rounded-lg text-sm shadow-lg shadow-slate-400 border-none"
+              >
                 {btn}
               </button>
             </div>

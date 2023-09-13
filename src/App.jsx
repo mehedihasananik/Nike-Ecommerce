@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import "./App.css";
 import {
   Hero,
@@ -23,6 +24,8 @@ import {
 function App() {
   return (
     <>
+      {" "}
+      <Toaster />
       <Cart />
       <Navbar />
       <div className="overflow-hidden flex flex-col gap-7 md:gap-14 ">

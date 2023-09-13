@@ -3,10 +3,10 @@ import { RxCross2 } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 import { clearCart, openModel } from "../../redux/cartSlice";
 
-const CartCount = () => {
+const CartCount = ({ amount }) => {
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
-  // console.log(cartItems);
+  console.log(cartItems);
   return (
     <div>
       <div className="bg-white flex justify-between items-center py-2 px-2  ">
@@ -17,7 +17,7 @@ const CartCount = () => {
           <div className="text-base font-medium">
             Your Cart{" "}
             <span className="bg-black py-1 px-1 text-[12px] text-white rounded-md">
-              (0 Items)
+              ( {amount} Items)
             </span>
           </div>
         </div>

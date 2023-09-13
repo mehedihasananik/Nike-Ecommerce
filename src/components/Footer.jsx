@@ -35,7 +35,13 @@ const Footer = ({ footerAPI: { links, titles } }) => {
           <div className="grid justify-center  pt-5 ">
             <p>
               Copyright© All Reserved Rights To{" "}
-              <span className="font-bold">Mehedi</span> 2023
+              <span className="font-bold">
+                {" "}
+                <a target="_" href="https://github.com/mehedihasananik">
+                  Mehedi
+                </a>
+              </span>{" "}
+              2023
             </p>
           </div>
         </div>

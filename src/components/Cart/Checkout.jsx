@@ -1,35 +1,27 @@
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-
-const Checkout = () => {
-  const { cartItems } = useSelector((state) => state.cart);
-  const [amount, setAmount] = useState(0);
-  const [total, setTotal] = useState(0);
-
-  const amountCalculation = () => {
-    let amount = 0;
-    cartItems.map((item) => {
-      amount = item.quantity + amount;
-    });
-    setAmount(amount);
-  };
-  const totalCalculation = () => {
-    let total = 0;
-    cartItems.map((item) => {
-      total = item.quantity * item.price + total;
-    });
-    setTotal(total);
-  };
-
-  useEffect(() => {
-    amountCalculation();
-    totalCalculation();
-  }, [cartItems]);
-
+const Checkout = ({ total }) => {
   return (
     <div>
-      <div className="h-[75vh] w-full flex justify-center items-end">
-        <h3>Subtotal: ${total}</h3>
+      <div className="bg-white h-[12vh]  absolute bottom-0 w-full z-[300]  ">
+        <div className="px-4 py-2">
+          {/* upper div */}
+          <div className="flex justify-between">
+            <div>
+              <h3 className="text-black text-base font-semibold">SUBTOTAL</h3>
+            </div>
+            <div className="bg-black  text-white px-1 py-1  rounded-md text-sm">
+              ${total}
+            </div>
+          </div>
+          {/* lower div */}
+          <div className="flex flex-col items-center">
+            <div className="text-black text-sm font-medium">
+              <h3>Taxes and Shipping Will Calculate At Shipping</h3>
+            </div>
+            <div className="w-full bg-black rounded-lg  text-white flex justify-center my-3">
+              <button className="py-1 ">Checkout</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

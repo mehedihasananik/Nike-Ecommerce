@@ -5,7 +5,7 @@ import { BiMinus } from "react-icons/bi";
 import { deCreaseItem, increaseItem, removeItem } from "../../redux/cartSlice";
 import Checkout from "./Checkout";
 
-const CartItem = () => {
+const CartItem = ({ total }) => {
   const { cartItems } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
@@ -13,13 +13,13 @@ const CartItem = () => {
     <>
       {cartItems.length >= 1 && (
         <>
-          <div className="bg-[#E3EDFA] py-5 px-2 space-y-5">
+          <div className="h-[80vh] overflow-y-scroll scroll-smooth bg-[#E3EDFA] py-5 px-2 space-y-5">
             {cartItems.map((item) => {
               const { id, img, text, title, price, quantity } = item;
               return (
                 <div key={id}>
-                  <div className="flex justify-between">
-                    <div className="flex max-w-lg gap-x-10 ">
+                  <div className="flex justify-between pt-2">
+                    <div className="flex max-w-lg gap-x-5 md:gap-x-10 pt-2">
                       {/* img */}
                       <div className="bg-blue-600 p-3 rounded-lg shadow-lg shadow-blue-600">
                         <img className="w-40" src={img} alt="" />
@@ -27,7 +27,7 @@ const CartItem = () => {
                       {/* title & button */}
                       <div>
                         {/* title */}
-                        <div className="pt-2">
+                        <div className="">
                           <h3 className="text-base font-medium">{title}</h3>
                           <h3 className="text-sm ">{text}</h3>
                         </div>
@@ -59,7 +59,7 @@ const CartItem = () => {
                       </div>
                     </div>
                     {/* price */}
-                    <div className="pt-2 flex flex-col gap-y-5">
+                    <div className="flex flex-col justify-between xs:h-[117px] sml:h-[93px] lsm:h-[95px] md:h-[85px] pt-2">
                       <div>
                         <h3>{price * quantity}</h3>
                       </div>
@@ -77,7 +77,7 @@ const CartItem = () => {
               );
             })}
           </div>
-          <Checkout />
+          <Checkout total={total} />
         </>
       )}
     </>
