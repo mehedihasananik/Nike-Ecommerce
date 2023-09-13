@@ -28,8 +28,10 @@ const CartItem = ({ total }) => {
                       <div>
                         {/* title */}
                         <div className="">
-                          <h3 className="text-base font-medium">{title}</h3>
-                          <h3 className="text-sm ">{text}</h3>
+                          <h3 className="text-[12px] md:text-base font-medium">
+                            {title}
+                          </h3>
+                          <h3 className="text-[12px] md:text-base ">{text}</h3>
                         </div>
                         {/* button */}
                         <div className="flex justify-start space-x-4 pt-4 px-4">
@@ -59,7 +61,10 @@ const CartItem = ({ total }) => {
                       </div>
                     </div>
                     {/* price */}
-                    <div className="flex flex-col justify-between xs:h-[117px] sml:h-[93px] lsm:h-[95px] md:h-[85px] pt-2">
+                    <div
+                      className="flex flex-col justify-between xs:h-[88px]  sml:h-[93px] 
+                    lsm:h-[87px] md:h-[100px] pt-2"
+                    >
                       <div>
                         <h3>{price * quantity}</h3>
                       </div>
